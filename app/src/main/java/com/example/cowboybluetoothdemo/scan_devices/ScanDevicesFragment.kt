@@ -25,6 +25,8 @@ class ScanDevicesFragment : Fragment() {
 
         // Super quick implementation of the permissions required for bluetooth operations
         // If the permission was already granted, it will still trigger the onRequestPermissionResult and start the scan
+
+        //Update necessary permissions
         val permissions = arrayOf(
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.ACCESS_FINE_LOCATION,
