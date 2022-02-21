@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="characteristic"
+            type="android.bluetooth.BluetoothGattCharacteristic" />
+    </data>
+
+    <RelativeLayout
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/characteristic_id_text_view"
+            android:textSize="16sp"
+            android:text="@{`Characteristic - ID = `+ characteristic.instanceId, default=`Characteristic - ID = `}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@id/characteristic_id_text_view"
+            android:id="@+id/characteristic_uuid_text_view"
+            android:textSize="16sp"
+            android:text="@{`UUID = ` + characteristic.uuid, default=`UUID = `}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</layout>

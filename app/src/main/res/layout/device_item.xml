@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="device"
+            type="com.example.cowboybluetoothdemo.SortableDevice" />
+
+        <variable
+            name="clickListener"
+            type="com.example.cowboybluetoothdemo.scan_devices.BluetoothDeviceAdapter.DeviceClickListener" />
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/item_border"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/device_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{device.device.name, default=`No name`}"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/device_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/device_name"
+            android:layout_marginTop="8dp"
+            android:text="@{device.device.address, default=`Test`}"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/signal_strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/device_address"
+            android:layout_marginTop="8dp"
+            android:text="@{`Signal strength = ` + device.signalStrength, default=`Signal strength = `}"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:visibility="@{device.connectable ? View.VISIBLE : View.GONE, default=gone}"
+            android:id="@+id/connect_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/device_name"
+            android:layout_alignBottom="@id/signal_strength"
+            android:layout_alignParentEnd="true"
+            android:background="#00f"
+            android:gravity="center"
+            android:onClick="@{() -> clickListener.onClick(device)}"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:text="Connect"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+</layout>

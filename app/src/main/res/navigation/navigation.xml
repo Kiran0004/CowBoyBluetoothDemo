@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/scanDevicesFragment">
+
+    <fragment
+        android:id="@+id/scanDevicesFragment"
+        android:name="com.example.cowboybluetoothdemo.scan_devices.ScanDevicesFragment"
+        android:label="fragment_scan_devices">
+        <action
+            android:id="@+id/connect"
+            app:destination="@id/deviceDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceDetailsFragment"
+        android:name="com.example.cowboybluetoothdemo.device_details.DeviceDetailsFragment"
+        android:label="fragment_device_details"/>
+
+</navigation>
